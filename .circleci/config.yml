@@ -9,7 +9,7 @@ jobs:
       - image: docker:17.06
     steps:
       - run: apk add --no-cache git openssh curl
-      - run: curl -fsSL https://git.io/v2Ifs -o /usr/local/bin/circleci-matrix \
+      - run: curl https://raw.githubusercontent.com/michaelcontento/circleci-matrix/master/src/circleci-matrix.sh -o /usr/local/bin/circleci-matrix \
             && chmod +x /usr/local/bin/circleci-matrix
       - checkout
       - run: echo hi

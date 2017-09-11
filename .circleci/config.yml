@@ -14,4 +14,4 @@ jobs:
       - run: curl -fsSL http://git.io/v2Ifn | sh
       - checkout
       - run: echo hi
-      - run: circleci-matrix
+      - run: ~/.local/bin/circleci-matrix

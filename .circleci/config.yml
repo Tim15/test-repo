@@ -11,6 +11,7 @@ jobs:
       - run: apk add --no-cache git openssh curl
       #- run: curl https://raw.githubusercontent.com/michaelcontento/circleci-matrix/master/src/circleci-matrix.sh -o /usr/local/bin/circleci-matrix \
        #     && chmod +x /usr/local/bin/circleci-matrix
+      - run: ln -s /bin/sh /bin/bash
       - run: curl -fsSL http://git.io/v2Ifn | sh
       - checkout
       - run: echo hi

@@ -1,0 +1,18 @@
+version: 2.0
+
+dependencies:
+    pre:
+    - curl -fsSL https://git.io/v2Ifn | bash
+
+jobs:
+            
+  build:
+    docker: 
+      - image: docker:17.06
+    steps:
+      - run: apk add --no-cache git openssh
+      - checkout
+      - setup_remote_docker
+      - run: docker build -t tim15/qemu-all .
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - run: docker push tim15/qemu-all

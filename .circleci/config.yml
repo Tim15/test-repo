@@ -1,15 +1,15 @@
 version: 2.0
 
-dependencies:
-    pre:
-    - curl -fsSL https://git.io/v2Ifn | bash
-
 jobs:
             
   build:
+    parallelism: 2
     docker: 
       - image: docker:17.06
+      - image: docker:17.06
     steps:
+      - run: curl -fsSL https://git.io/v2Ifs -o /usr/local/bin/circleci-matrix \
+            && chmod +x /usr/local/bin/circleci-matrix
       - run: apk add --no-cache git openssh
       - checkout
       - run: echo hi
